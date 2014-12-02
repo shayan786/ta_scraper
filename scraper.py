@@ -44,7 +44,7 @@ def get_sub_loc_urls(url):
         print sub_url
         
          
-def def parse_listing_pages(start_url):
+def parse_listing_pages(start_url):
     # not iterate over the pages
     count = 0
     while True:
