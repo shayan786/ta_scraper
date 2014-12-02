@@ -86,7 +86,7 @@ def parse_listing_pages(start_url):
         print "Finished page %s" % count
         count = count + 30
 
-start_url = "http://www.tripadvisor.com/RestaurantSearch?geo=298450&o=a%s&sortOrder=popularity"
+start_url = "http://www.tripadvisor.com/RestaurantSearch?geo=60616&o=a%s&sortOrder=popularity"
 
 # start_url = "http://www.tripadvisor.com/Attractions-g60616-Activities-Kapaa_Kauai_Hawaii.html"
 parse_listing_pages(start_url)
