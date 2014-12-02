@@ -53,7 +53,7 @@ def scrape_activities_in_a_region(url):
         for el in sub_activities_page(".grayLnk"):
                    
            if el.text == "Adventure":
-               sub_activities_adv_url = "http://www.tripadvisor.com" + el.attr("href")
+               sub_activities_adv_url = "http://www.tripadvisor.com" + el.get("href")
                sub_activities_adv_page = get_url(sub_activities_adv_url)
                
                print sub_activities_adv_url
