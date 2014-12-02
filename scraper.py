@@ -51,7 +51,7 @@ def scrape_activities_in_a_region(url):
         
         # go to the adventure page (if it exists)
         for el in sub_activities_page(".filterbox .styleButton a"):
-           print el.attr("href")
+           print el.get("href")
                    
            if el.val() == "Adventure":
                sub_activities_adv_url = "http://www.tripadvisor.com" + el.attr("href")
