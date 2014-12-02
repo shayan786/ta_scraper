@@ -30,7 +30,8 @@ page = get_url(scrape_url)
 email_raw = strip_tags(page(".sprite-grayEmail").next().attr("onclick"))
 
 email = email_regex.findall(email_raw)  
-        if email:
-            email = email[0]
+
+if email:
+  email = email[0]
 
 print email
