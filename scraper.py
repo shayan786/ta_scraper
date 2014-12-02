@@ -19,8 +19,8 @@ def strip_tags(value):
     if value:
         return re.sub(r'<[^>]*?>', '', value)
     return ""
-    
-page = get_url(page_url)
+
+page = get_url(scrape_url)
     
 email_raw = strip_tags(page(".sprite-grayEmail").next().attr("onclick"))
 
