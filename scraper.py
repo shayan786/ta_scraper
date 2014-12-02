@@ -38,7 +38,7 @@ def parse_list(root):
           email = email[0]
           print email
 
-def get_sub_loc_urls(url)
+def get_sub_loc_urls(url):
     for el in url(".geo_name").next():
         sub_url = "http://www.tripadvisor.com" + el.get("href")
         print sub_url
