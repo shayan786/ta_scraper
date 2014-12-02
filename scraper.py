@@ -8,8 +8,4 @@ from pyquery import PyQuery as pq
 
 scrape_url = "http://www.tripadvisor.com/Attractions-g60616-Activities-Kapaa_Kauai_Hawaii.html"
 
-scraperwiki.scrape(scrape_url)
-
-root = lxml.html.fromstring(html)
-
-print html
+print scraperwiki.scrape(scrape_url)
