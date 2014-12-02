@@ -37,11 +37,29 @@ def parse_list(root):
         
         if email:
           email = email[0]
-          print email
+          # print email
+
+def parse_listing_pages(start_url):
+    # not iterate over the pages
+    count = 0
+    while True:
+        url = start_url % (count) # targets each page in the list
+        print "On page %s" % url
+        root = get_url(url)
+
+        # check if there are items, if not stop since you exceeded the total pages
+        if not root(".listing"):
+            print "Reached end at page %s" % count
+            break
+
+        # this will parse the first listing page
+        # parse_list(root)
+        # print "Finished page %s" % count
+        count = count + 30
           
 
 scrape_url_page = get_url(scrape_url)
-parse_list(scrape_url_page)
+parse_listing_pages(scrape_url_page)
     
 # email_raw = strip_tags(page(".sprite-grayEmail").next().attr("onclick"))
 
