@@ -38,7 +38,7 @@ def parse_list(root):
           email = email[0]
           print email
 
-def get_sub_loc_urls(url):
+def scrape_activities_in_a_region(url):
     for el in url(".geo_name a"):
         sub_url = "http://www.tripadvisor.com" + el.get("href")
         
@@ -46,10 +46,21 @@ def get_sub_loc_urls(url):
         sub_page = get_url(sub_url)
         
         # go to the activities page
-        sub_activities_url = sub_page(".overview .tab1 a").attr("href")
-        print sub_activities_url
+        sub_activities_url = "http://www.tripadvisor.com" + sub_page(".overview .tab1 a").attr("href")
+        sub_activities_page = get_url(sub_activities_url)
         
+        # go to the adventure page (if it exists)
+        for el in sub_activities_page(".filterbox .styleButton a"):
+           if el.val() == "Adventure":
+               sub_activities_adv_url = "http://www.tripadvisor.com" + el.attr("href")
+               sub_activities_adv_page = get_url(sub_activities_adv_url)
+               
+               print sub_activities_adv_url
+               
+               # get the emails
+               
         
+       
         
          
 def parse_listing_pages(start_url):
@@ -71,7 +82,7 @@ def parse_listing_pages(start_url):
         count = count + 30
 
 scrape_url_page = get_url(scrape_url)
-get_sub_loc_urls(scrape_url_page)
+scrape_activities_in_a_region(scrape_url_page)
 
 
 #parse_list(scrape_url_page)
