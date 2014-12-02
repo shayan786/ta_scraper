@@ -50,7 +50,7 @@ def scrape_activities_in_a_region(url):
         sub_activities_page = get_url(sub_activities_url)
         
         # go to the adventure page (if it exists)
-        for el in sub_activities_page(".filterbox .styleButton a.grayLnk"):
+        for el in sub_activities_page(".grayLnk"):
            print el.get("href")
                    
            if el.val() == "Adventure":
