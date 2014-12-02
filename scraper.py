@@ -37,13 +37,6 @@ def parse_list(root):
         if email:
           email = email[0]
           print email
-        
-        data = {
-            'email': email,
-            
-        }
-        
-        scraperwiki.sqlite.save(data=data, table_name="tripadvisor_vietnam_scrape")
 
 scrape_url_page = get_url(scrape_url)
 parse_list(scrape_url_page)
