@@ -29,12 +29,21 @@ def parse_list(root):
     """ Takes a listing page and indexes all the listings in it """
     for el in root(".listing a.property_title"):
         page_url = "http://www.tripadvisor.com" + el.get("href");
-        print "Url: %s" % page_url
+        # print "Url: %s" % page_url
+        page = get_url(page_url)
+        
+        email_raw = strip_tags(page(".sprite-grayEmail").next().attr("onclick"))
+        email = email_regex.findall(email_raw)
+        
+        if email:
+          email = email[0]
+          print email
+        else
+          print "no email found!"
+          
 
-
-page = get_url(scrape_url)
-  
-parse_list(page)
+scrape_url_page = get_url(scrape_url)
+parse_list(scrape_url_page)
     
 # email_raw = strip_tags(page(".sprite-grayEmail").next().attr("onclick"))
 
