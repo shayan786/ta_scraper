@@ -46,7 +46,7 @@ def get_sub_loc_urls(url):
         sub_page = get_url(sub_url)
         
         # go to the activities page
-        sub_activities_url = sub_page("#ATTRACTION_FILTER #tab1 a").get("href")
+        sub_activities_url = sub_page(".overview .tab1 a").attr("href")
         print sub_activities_url
         
         
