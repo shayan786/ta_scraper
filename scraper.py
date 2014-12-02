@@ -28,7 +28,7 @@ def strip_tags(value):
 def parse_list(root):
     """ Takes a listing page and indexes all the listings in it """
     for el in root(".listing a.property_title"):
-        page_url = "http://www.tripadvisor.com" + el.get("href");
+        page_url = "http://www.tripadvisor.com" + el.get("href")
         page = get_url(page_url)
         
         email_raw = strip_tags(page(".sprite-grayEmail").next().attr("onclick"))
@@ -39,7 +39,7 @@ def parse_list(root):
           print email
 
 def get_sub_loc_urls(url):
-    for el in url(".geo_name").next():
+    for el in url(".geo_name a"):
         sub_url = "http://www.tripadvisor.com" + el.get("href")
         print sub_url
         
