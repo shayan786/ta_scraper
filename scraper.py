@@ -8,4 +8,6 @@ from pyquery import PyQuery as pq
 
 scrape_url = "http://www.tripadvisor.com/Attraction_Review-g60616-d1015347-Reviews-Kayak_Wailua-Kapaa_Kauai_Hawaii.html"
 
-print scraperwiki.scrape(scrape_url)
+email_raw = strip_tags(page(".sprite-grayEmail").next().attr("onclick"))
+
+print email_raw
