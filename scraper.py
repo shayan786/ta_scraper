@@ -37,6 +37,7 @@ def parse_list(root):
         if email:
           email = email[0]
           print email
+          print "\n"
           
 
 scrape_url_page = get_url(scrape_url)
