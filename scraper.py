@@ -56,31 +56,9 @@ def scrape_activities_in_a_region(url):
                sub_activities_adv_url = "http://www.tripadvisor.com" + el.get("href")
                sub_activities_adv_page = get_url(sub_activities_adv_url)
                
-               print sub_activities_adv_url
-               
                # get the emails
-               
+               parse_list(sub_activities_adv_page)
         
-       
-        
-         
-def parse_listing_pages(start_url):
-    # not iterate over the pages
-    count = 0
-    while True:
-        url = start_url % (count) # targets each page in the list
-        print "On page %s" % url
-        root = get_url(url)
-
-        # check if there are items, if not stop since you exceeded the total pages
-        if not root(".listing"):
-            print "Reached end at page %s" % count
-            break
-
-        # this will parse the first listing page
-        parse_list(root)
-        print "Finished page %s" % count
-        count = count + 30
 
 scrape_url_page = get_url(scrape_url)
 scrape_activities_in_a_region(scrape_url_page)
