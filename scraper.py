@@ -50,14 +50,14 @@ def scrape_activities_in_a_region(url):
         sub_activities_page = get_url(sub_activities_url)
         
         # go to the adventure page (if it exists)
-        for el in sub_activities_page(".filterbox .styleButton a"):
+        for el in sub_activities_page(".filterbox .styleButton a.grayLnk"):
            print el.get("href")
                    
            if el.val() == "Adventure":
                sub_activities_adv_url = "http://www.tripadvisor.com" + el.attr("href")
                sub_activities_adv_page = get_url(sub_activities_adv_url)
                
-               print sub_activities_adv_url
+               # print sub_activities_adv_url
                
                # get the emails
                
