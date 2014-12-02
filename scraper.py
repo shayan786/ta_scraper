@@ -38,8 +38,6 @@ def parse_list(root):
         if email:
           email = email[0]
           print email
-        else
-          print "no email found!"
           
 
 scrape_url_page = get_url(scrape_url)
