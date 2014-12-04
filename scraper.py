@@ -61,7 +61,7 @@ def scrape_activities_in_a_region(url):
         
 
 scrape_url_page = get_url(scrape_url)
-#scrape_activities_in_a_region(scrape_url_page)
+scrape_activities_in_a_region(scrape_url_page)
 
 
-parse_list(scrape_url_page)
+#parse_list(scrape_url_page)
