@@ -39,25 +39,28 @@ def parse_list(root):
           print email
 
 def scrape_activities_in_a_region(url):
-    for el in url(".geo_name a"):
+    for el in url(".geo_image a"):
         sub_url = "http://www.tripadvisor.com" + el.get("href")
+        print sub_url
         
         # go to that sub location page
-        sub_page = get_url(sub_url)
+        # sub_page = get_url(sub_url)
         
          # go to the activities page
-        if sub_page(".overview .tab1 a"):
-            sub_activities_url = "http://www.tripadvisor.com" + sub_page(".overview .tab1 a").attr("href")
-            sub_activities_page = get_url(sub_activities_url)
+        #if sub_page(".overview .tab1 a"):
+            #sub_activities_url = "http://www.tripadvisor.com" + sub_page(".overview .tab1 a").attr("href")
+            #print sub_activities_url
+            
+            #sub_activities_page = get_url(sub_activities_url)
         
-            # go to the adventure page (if it exists)
-            for el in sub_activities_page(".grayLnk"):
-               if el.text == "Adventure":
-                   sub_activities_adv_url = "http://www.tripadvisor.com" + el.get("href")
-                   sub_activities_adv_page = get_url(sub_activities_adv_url)
+            # go to the individual page (if it exists)
+            # for el in sub_activities_page(".grayLnk"):
+               # if el.text == "Adventure":
+                   #sub_activities_adv_url = "http://www.tripadvisor.com" + el.get("href")
+                   #sub_activities_adv_page = get_url(sub_activities_adv_url)
                
                    # get the emails
-                   parse_list(sub_activities_adv_page)
+                   #parse_list(sub_activities_adv_page)
         
 
 scrape_url_page = get_url(scrape_url)
