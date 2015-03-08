@@ -48,15 +48,14 @@ def scrape_activities_in_a_region(url):
         # go to the activities page
         if sub_page(".filter#ATTR_CATEGORY_42"):
             sub_activities_url = "http://www.tripadvisor.com" + sub_page(".filter#ATTR_CATEGORY_42 a").attr("href")
-            print sub_activities_url
-            
-            #sub_activities_page = get_url(sub_activities_url)
+            sub_activities_page = get_url(sub_activities_url)
         
             # go to the individual page (if it exists)
-            # for el in sub_activities_page(".grayLnk"):
-               # if el.text == "Adventure":
-                   #sub_activities_adv_url = "http://www.tripadvisor.com" + el.get("href")
-                   #sub_activities_adv_page = get_url(sub_activities_adv_url)
+            for el in sub_activities_page(".element_wrap"):
+                   sub_activities_adv_url = "http://www.tripadvisor.com" + sub_activities_page(".element_wrap a").attr("href")
+                   sub_activities_adv_page = get_url(sub_activities_adv_url)
+                   
+                   print sub_activities_adv_url
                
                    # get the emails
                    #parse_list(sub_activities_adv_page)
