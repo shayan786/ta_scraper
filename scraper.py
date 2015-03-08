@@ -41,15 +41,14 @@ def parse_list(root):
 def scrape_activities_in_a_region(url):
     for el in url(".geo_image a"):
         sub_url = "http://www.tripadvisor.com" + el.get("href")
-        print sub_url
         
         # go to that sub location page
-        # sub_page = get_url(sub_url)
+        sub_page = get_url(sub_url)
         
-         # go to the activities page
-        #if sub_page(".overview .tab1 a"):
-            #sub_activities_url = "http://www.tripadvisor.com" + sub_page(".overview .tab1 a").attr("href")
-            #print sub_activities_url
+        # go to the activities page
+        if sub_page(".filter#ATTR_CATEGORY_42"):
+            sub_activities_url = "http://www.tripadvisor.com" + sub_page(".filter#ATTR_CATEGORY_42 a").attr("href")
+            print sub_activities_url
             
             #sub_activities_page = get_url(sub_activities_url)
         
